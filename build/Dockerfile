@@ -1,7 +1,7 @@
 FROM golang:1.20-alpine as builder
 WORKDIR /
 
-COPY .. ./
+COPY ./ ./
 
 RUN go mod download
 RUN go build -o bin/app ./cmd/snaker/main.go
