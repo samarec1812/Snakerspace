@@ -32,7 +32,6 @@ jobs:
         go build -v ./...
 
     - name: Lint
-      runs-on: ubuntu-latest
       uses: golangci/golangci-lint-action@v3
       with:
         version: latest
