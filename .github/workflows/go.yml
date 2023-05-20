@@ -32,12 +32,12 @@ jobs:
         go build -v ./...
 
     - name: Lint
+      runs-on: ubuntu-latest
       uses: golangci/golangci-lint-action@v3
       with:
         version: latest
         working-directory: ${{ matrix.work_dir }}
-      run: |
-        make lint
+        config: .golangci.yml
 
     - name: Test
       working-directory: ${{ matrix.work_dir }}
