@@ -28,8 +28,7 @@ jobs:
 
     - name: Build
       run: |
-        go mod tidy 
-        go build -v ./...
+        make build
 
     - name: Lint
       uses: golangci/golangci-lint-action@v3

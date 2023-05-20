@@ -6,4 +6,5 @@ lint:
 .PHONY: build
 build:
 	$(info Build project...)
-	go build -o bin/app ./cmd/note/main.go
+	go mod tidy
+	go build -o bin/app ./cmd/article/main.go
