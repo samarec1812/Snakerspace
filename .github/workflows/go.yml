@@ -36,6 +36,8 @@ jobs:
       with:
         version: latest
         working-directory: ${{ matrix.work_dir }}
+      run: |
+        make lint
 
     - name: Test
       working-directory: ${{ matrix.work_dir }}
