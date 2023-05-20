@@ -7,4 +7,4 @@ lint:
 build:
 	$(info Build project...)
 	go mod tidy
-	go build -o bin/app ./cmd/article/main.go
+	go build -o bin/app ./cmd/snaker/main.go
