@@ -59,7 +59,7 @@ jobs:
 
       - name: Deploy
         run: |
-          docker login -u samarec1812 --password $DOCKER_TOKEN
+          docker login -u samarec1812 --password ${{secrets.DOCKER_TOKEN}}
           docker build -f build/Dockerfile -t samarec1812/snakerspace:latest .
           docker push samarec1812/snakerspace:latest
           
