@@ -1,0 +1,5 @@
+app:
+  http:
+    port: ":8080"
+  metric:
+    port: ":8081"
