@@ -14,6 +14,5 @@ WORKDIR /root/
 
 COPY --from=builder /app/snaker ./
 
-EXPOSE 8080
 
 CMD ["./snaker", "--config", "/app/config/config.yml"]

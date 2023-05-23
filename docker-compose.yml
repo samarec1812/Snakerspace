@@ -1,15 +1,36 @@
 version: "3"
 
 services:
-  snaker:
+  nginx:
+    image: nginx:1.23-alpine
+    volumes:
+      - ./nginx/ac_ps.conf:/etc/nginx/nginx.conf
+    container_name: nginx
+    ports:
+      - "18000:18000"
+    depends_on:
+      - snaker1
+      - snaker2
+
+  snaker1:
     restart: on-failure
     build:
       context: .
       dockerfile: build/Dockerfile
-    container_name: snaker-1
-    image: snaker-1
+    container_name: snaker1
     ports:
-     - "8080:8080"
+     - "8084:8080"
+     - "8085:8081"
+
+  snaker2:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    container_name: snaker2
+    ports:
+      - "8086:8080"
+      - "8087:8081"
 
   prometheus:
     image: prom/prometheus
@@ -20,7 +41,7 @@ services:
     volumes:
       - "./prometheus:/etc/prometheus"
     depends_on:
-      - snaker
+      - nginx
 
   grafana:
     image: grafana/grafana

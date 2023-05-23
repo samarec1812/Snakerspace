@@ -21,8 +21,8 @@ import (
 )
 
 const (
-	httpPort    = ":8080"
-	metricsPort = ":8081"
+// httpPort    = ":8080"
+// metricsPort = ":8081"
 )
 
 var (
